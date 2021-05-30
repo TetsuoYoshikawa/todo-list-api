@@ -83,6 +83,10 @@ class TodosController extends Controller
         $item = Todo::where('id', $todo->id)->delete();
         if ($item) {
             return response()->json([
+                'message' => 'Todo-List Deleted successfully',
+            ], 200);
+        } else {
+            return response()->json([
                 'message' => 'Todo-List Not found',
             ], 404);
         }
